@@ -1,0 +1,42 @@
+# HG changeset patch
+# Parent 62d0656f99c08381acd3b4dd411e30a686c71cc4
+diff -r 62d0656f99c0 -r 968ab53e43ff talk/libjingle.scons
+--- a/talk/libjingle.scons	Fri Mar 23 23:15:35 2012 +0000
++++ b/talk/libjingle.scons	Tue Apr 03 21:16:34 2012 +0200
+@@ -12,6 +12,7 @@
+              ],
+              includedirs = [
+                "third_party/expat-2.0.1/lib",
++               "third_party/expat-2.0.1",
+              ],
+              win_cppdefines = [
+                "COMPILED_FROM_DSP",
+diff -r 62d0656f99c0 -r 968ab53e43ff talk/main.scons
+--- a/talk/main.scons	Fri Mar 23 23:15:35 2012 +0000
++++ b/talk/main.scons	Tue Apr 03 21:16:34 2012 +0200
+@@ -345,7 +345,6 @@
+   CXXFLAGS = [
+     '-Wno-non-virtual-dtor',
+     '-Wno-ctor-dtor-privacy',
+-    '-fno-rtti',
+   ],
+ )
+ 
+@@ -369,7 +368,7 @@
+   CCFLAGS = [
+     '-m32',
+     '-arch', 'i386',
+-    '-isysroot', '/Developer/SDKs/MacOSX10.5.sdk',
++    '-isysroot', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk',
+     '-fasm-blocks',
+   ],
+   LINKFLAGS = [
+@@ -381,7 +380,7 @@
+     '-ObjC',
+     '-arch', 'i386',
+     '-mmacosx-version-min=10.5',
+-    '-isysroot', '/Developer/SDKs/MacOSX10.5.sdk',
++    '-isysroot', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk',
+     '-m32',
+     '-dead_strip',
+   ],

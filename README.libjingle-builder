@@ -1,0 +1,34 @@
+Note: Currently this builder implements instructions for revision 129.
+Tested only on Mac OS X, Lion.
+
+Set of scripts to ease bootstrapping and building of libjingle. Mostly intended to bootstrap the environment.
+
+fetch.sh:
+- Fetches a specific revision of libjingle which this builder works for
+- Fetches remaining libraries as described in build instructions for libjingle
+- Unpacks and installs any libraries, chmodding as necessary, as required in build instructions for libjingle
+- Should be run normally:
+bash$ ./fetch.sh
+
+setup_environment.sh:
+- Sets environment variables according to build instructions for libjingle
+- Should be 'sourced' using the dot command in bash: 
+bash$ . setup_environment
+
+build.sh:
+- Runs any pre-build operations necessary
+- Initiates building process for libjingle, as described in build instructions for libjingle
+- Should be run normally:
+bash$ ./build.sh
+
+
+As a special treat, included is a patch for building under OS X Lion.
+
+After that, you can try applying the iOS Simulator patch as well, but this is 
+untested and incomplete. The "login" example app seems to work ok when
+ran from OS X command line. Also, no media handler has been written yet,
+and pieces of potentially useful OS X code have been removed. No working
+actual app has yet been written with this patched code.
+
+For alternative work please see:
+https://github.com/alist/libjingle_ios/

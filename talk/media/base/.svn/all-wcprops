@@ -1,0 +1,329 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/173/trunk/talk/media/base
+END
+rtpdump.cc
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/162/trunk/talk/media/base/rtpdump.cc
+END
+videoengine_unittest.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/173/trunk/talk/media/base/videoengine_unittest.h
+END
+rtpdump.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/173/trunk/talk/media/base/rtpdump.h
+END
+fakertp.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/162/trunk/talk/media/base/fakertp.h
+END
+videorenderer.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/162/trunk/talk/media/base/videorenderer.h
+END
+streamparams.cc
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/162/trunk/talk/media/base/streamparams.cc
+END
+testutils.cc
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/173/trunk/talk/media/base/testutils.cc
+END
+hybridvideoengine.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/173/trunk/talk/media/base/hybridvideoengine.h
+END
+streamparams.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/162/trunk/talk/media/base/streamparams.h
+END
+fakenetworkinterface.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/162/trunk/talk/media/base/fakenetworkinterface.h
+END
+filemediaengine_unittest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/166/trunk/talk/media/base/filemediaengine_unittest.cc
+END
+mediaengine.cc
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/169/trunk/talk/media/base/mediaengine.cc
+END
+fakevideocapturer.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/173/trunk/talk/media/base/fakevideocapturer.h
+END
+cpuid.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/162/trunk/talk/media/base/cpuid.h
+END
+mediaengine.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/173/trunk/talk/media/base/mediaengine.h
+END
+videoadapter.cc
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/173/trunk/talk/media/base/videoadapter.cc
+END
+fakemediaprocessor.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/173/trunk/talk/media/base/fakemediaprocessor.h
+END
+videoprocessor.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/162/trunk/talk/media/base/videoprocessor.h
+END
+videoadapter.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/162/trunk/talk/media/base/videoadapter.h
+END
+mediachannel.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/173/trunk/talk/media/base/mediachannel.h
+END
+videocapturer_unittest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/173/trunk/talk/media/base/videocapturer_unittest.cc
+END
+videocapturer.cc
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/173/trunk/talk/media/base/videocapturer.cc
+END
+codec.cc
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/173/trunk/talk/media/base/codec.cc
+END
+audioframe.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/173/trunk/talk/media/base/audioframe.h
+END
+constants.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/162/trunk/talk/media/base/constants.h
+END
+codec.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/162/trunk/talk/media/base/codec.h
+END
+videocommon.cc
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/173/trunk/talk/media/base/videocommon.cc
+END
+videocommon.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/173/trunk/talk/media/base/videocommon.h
+END
+rtpdataengine_unittest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/171/trunk/talk/media/base/rtpdataengine_unittest.cc
+END
+fakevideorenderer.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/162/trunk/talk/media/base/fakevideorenderer.h
+END
+cryptoparams.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/162/trunk/talk/media/base/cryptoparams.h
+END
+rtputils.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/162/trunk/talk/media/base/rtputils.h
+END
+rtpdump_unittest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/162/trunk/talk/media/base/rtpdump_unittest.cc
+END
+nullvideorenderer.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/162/trunk/talk/media/base/nullvideorenderer.h
+END
+hybridvideoengine.cc
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/173/trunk/talk/media/base/hybridvideoengine.cc
+END
+fakemediaengine.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/173/trunk/talk/media/base/fakemediaengine.h
+END
+testutils.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/173/trunk/talk/media/base/testutils.h
+END
+cpuid.cc
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/162/trunk/talk/media/base/cpuid.cc
+END
+filemediaengine.cc
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/173/trunk/talk/media/base/filemediaengine.cc
+END
+filemediaengine.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/173/trunk/talk/media/base/filemediaengine.h
+END
+voiceprocessor.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/162/trunk/talk/media/base/voiceprocessor.h
+END
+screencastid.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/173/trunk/talk/media/base/screencastid.h
+END
+constants.cc
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/162/trunk/talk/media/base/constants.cc
+END
+codec_unittest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/162/trunk/talk/media/base/codec_unittest.cc
+END
+videocommon_unittest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/164/trunk/talk/media/base/videocommon_unittest.cc
+END
+videocapturer.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/173/trunk/talk/media/base/videocapturer.h
+END
+nullvideoframe.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/162/trunk/talk/media/base/nullvideoframe.h
+END
+videoframe.cc
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/173/trunk/talk/media/base/videoframe.cc
+END
+videoframe.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/162/trunk/talk/media/base/videoframe.h
+END
+rtpdataengine.cc
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/173/trunk/talk/media/base/rtpdataengine.cc
+END
+rtputils_unittest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/162/trunk/talk/media/base/rtputils_unittest.cc
+END
+rtputils.cc
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/173/trunk/talk/media/base/rtputils.cc
+END
+rtpdataengine.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/171/trunk/talk/media/base/rtpdataengine.h
+END
+mediacommon.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/162/trunk/talk/media/base/mediacommon.h
+END

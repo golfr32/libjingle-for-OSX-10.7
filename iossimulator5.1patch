@@ -1,0 +1,237 @@
+# HG changeset patch
+# Parent dd32b03cd4c82296cf12432088faf7f466fdb979
+
+diff -r dd32b03cd4c8 talk/base/ipaddress.cc
+--- a/talk/base/ipaddress.cc	Tue Apr 03 21:16:54 2012 +0200
++++ b/talk/base/ipaddress.cc	Tue Apr 03 23:16:10 2012 +0200
+@@ -327,6 +327,7 @@
+     uint32* v6_as_ints =
+         reinterpret_cast<uint32*>(&v6addr.s6_addr);
+     in6_addr ip_addr = ip.ipv6_address();
++#pragma unused(ip_addr)
+     for (int i = 0; i < 4; ++i) {
+       if (i == position) {
+         uint32 host_order_inner = NetworkToHost32(v6_as_ints[i]);
+diff -r dd32b03cd4c8 talk/base/timeutils.cc
+--- a/talk/base/timeutils.cc	Tue Apr 03 21:16:54 2012 +0200
++++ b/talk/base/timeutils.cc	Tue Apr 03 23:16:10 2012 +0200
+@@ -27,7 +27,7 @@
+ 
+ #ifdef POSIX
+ #include <sys/time.h>
+-#if defined(OSX)
++#if defined(OSX) || defined(IOS)
+ #include <mach/mach_time.h>
+ #endif
+ #endif
+@@ -50,7 +50,7 @@
+ 
+ uint64 TimeNanos() {
+   int64 ticks = 0;
+-#if defined(OSX)
++#if defined(OSX) || defined(IOS)
+   static mach_timebase_info_data_t timebase;
+   if (timebase.denom == 0) {
+     // Get the timebase if this is the first time we run.
+diff -r dd32b03cd4c8 talk/examples/login/login_main.cc
+--- a/talk/examples/login/login_main.cc	Tue Apr 03 21:16:54 2012 +0200
++++ b/talk/examples/login/login_main.cc	Tue Apr 03 23:16:10 2012 +0200
+@@ -48,10 +48,14 @@
+ 
+   buzz::XmppClientSettings xcs;
+   xcs.set_user(username.c_str());
+-  xcs.set_host("gmail.com");
++  talk_base::InsecureCryptStringImpl pass;
++  pass.password() = (auth_cookie.c_str());
++  xcs.set_pass(talk_base::CryptString(pass));
++  xcs.set_host("zatemas.zrs.hr");
+   xcs.set_use_tls(buzz::TLS_DISABLED);
+-  xcs.set_auth_cookie(auth_cookie.c_str());
+-  xcs.set_server(talk_base::SocketAddress("talk.google.com", 5222));
++  xcs.set_test_server_domain("zatemas.zrs.hr");
++//  xcs.set_auth_cookie(auth_cookie.c_str());
++  xcs.set_server(talk_base::SocketAddress("zatemas.zrs.hr", 5222));
+   thread.Login(xcs);
+ 
+   // Use main thread for console input
+diff -r dd32b03cd4c8 talk/libjingle.scons
+--- a/talk/libjingle.scons	Tue Apr 03 21:16:54 2012 +0200
++++ b/talk/libjingle.scons	Tue Apr 03 23:16:10 2012 +0200
+@@ -98,15 +98,15 @@
+                ],
+              },
+              mac_srcs = [
+-               "base/macasyncsocket.cc",
+-               "base/macconversion.cc",
+-               "base/macsocketserver.cc",
+-               "base/macutils.cc",
+-               "base/macwindowpicker.cc",
+-               "base/scoped_autorelease_pool.mm",
+-               "session/phone/carbonvideorenderer.cc",
+-               "session/phone/macdevicemanager.cc",
+-               "session/phone/macdevicemanagermm.mm",
++#               "base/macasyncsocket.cc",
++#               "base/macconversion.cc",
++#               "base/macsocketserver.cc",
++#               "base/macutils.cc",
++#               "base/macwindowpicker.cc",
++#               "base/scoped_autorelease_pool.mm",
++#               "session/phone/carbonvideorenderer.cc",
++#               "session/phone/macdevicemanager.cc",
++#               "session/phone/macdevicemanagermm.mm",
+              ],
+              posix_srcs = [
+                "base/unixfilesystem.cc",
+@@ -170,7 +170,7 @@
+                "base/optionsfile.cc",
+                "base/pathutils.cc",
+                "base/physicalsocketserver.cc",
+-               "base/proxydetect.cc",
++#               "base/proxydetect.cc",
+                "base/proxyinfo.cc",
+                "base/proxyserver.cc",
+                "base/ratelimiter.cc",
+@@ -302,6 +302,7 @@
+                "third_party/srtp/include",
+                "third_party/srtp/crypto/include",
+                "third_party/openssl/include",
++               "third_party/ios-libraries/iPhoneSimulator-4.3/include",
+              ],
+              win_srcs = [
+                "base/diskcache_win32.cc",
+@@ -385,6 +386,9 @@
+            "crypto",
+            "ssl",
+          ],
++	 link_flags = [
++	 "-Lthird_party/ios-libraries/iPhoneSimulator-4.3/lib"
++	 ],
+          lin_libs = [
+            "videorenderer",
+          ],
+@@ -411,6 +415,9 @@
+            "crypto",
+            "ssl",
+          ],
++	 link_flags = [
++	 "-Lthird_party/ios-libraries/iPhoneSimulator-4.3/lib"
++	 ],
+          lin_libs = [
+            "videorenderer",
+          ],
+@@ -555,6 +562,9 @@
+                 "crypto",
+                 "ssl",
+               ],
++	 link_flags = [
++	 "-Lthird_party/ios-libraries/iPhoneSimulator-4.3/lib"
++	 ],
+               cppdefines = [
+                 "LIBJINGLE_UNITTEST",
+                 "EXPAT_RELATIVE_PATH",
+@@ -642,6 +652,9 @@
+                 "crypto",
+                 "ssl",
+               ],
++	 link_flags = [
++	 "-Lthird_party/ios-libraries/iPhoneSimulator-4.3/lib"
++	 ],
+               includedirs = [
+                 "third_party/gtest/include",
+                 "third_party/expat-2.0.1/lib",
+@@ -671,6 +684,9 @@
+                 "crypto",
+                 "ssl",
+               ],
++	 link_flags = [
++	 "-Lthird_party/ios-libraries/iPhoneSimulator-4.3/lib"
++	 ],
+               includedirs = [
+                 "third_party/gtest/include",
+                 "third_party/expat-2.0.1/lib",
+@@ -688,6 +704,9 @@
+                 "crypto",
+                 "ssl",
+               ],
++	 link_flags = [
++	 "-Lthird_party/ios-libraries/iPhoneSimulator-4.3/lib"
++	 ],
+               cppdefines = [
+                 "LIBJINGLE_UNITTEST",
+                 "EXPAT_RELATIVE_PATH",
+diff -r dd32b03cd4c8 talk/main.scons
+--- a/talk/main.scons	Tue Apr 03 21:16:54 2012 +0200
++++ b/talk/main.scons	Tue Apr 03 23:16:10 2012 +0200
+@@ -328,7 +328,7 @@
+   ],
+   CCFLAGS = [
+     '-Wall',
+-    '-Werror',
++#    '-Werror',
+     '-Wno-switch',
+     '-fno-exceptions',
+     # Needed for a clean ABI and for link-time dead-code removal to work
+@@ -363,12 +363,12 @@
+ mac_env.SetBits('use_static_openssl')
+ mac_env.Append(
+   CPPDEFINES = [
+-    'OSX',
++    'IOS',
+   ],
+   CCFLAGS = [
+     '-m32',
+     '-arch', 'i386',
+-    '-isysroot', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk',
++    '-isysroot', '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk',
+     '-fasm-blocks',
+   ],
+   LINKFLAGS = [
+@@ -379,24 +379,28 @@
+     # TODO: consider only defining for libs that actually have objc.
+     '-ObjC',
+     '-arch', 'i386',
+-    '-mmacosx-version-min=10.5',
+-    '-isysroot', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk',
++    '-mmacosx-version-min=10.6',
++    '-isysroot', '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk',
+     '-m32',
+     '-dead_strip',
+   ],
+   FRAMEWORKS = [
+-    'CoreServices',
+-    'Carbon',
++#    'CoreServices',
++#    'Carbon',
+     'Security',
+     'SystemConfiguration',
+-    'OpenGL',
++#    'OpenGL',
+     'CoreAudio',
+-    'Quartz',
+-    'QuickTime',
+-    'Cocoa',
+-    'QTKit',
++#    'Quartz',
++#    'QuickTime',
++#    'Cocoa',
++#    'QTKit',
+   ]
+ )
++#mac_env.Replace(CC = '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/clang')
++#mac_env.Replace(CXX = '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/clang++')
++mac_env.Replace(CC = '/usr/bin/clang')
++mac_env.Replace(CXX = '/usr/bin/clang++')
+ 
+ mac_dbg_env = mac_env.Clone(
+   BUILD_TYPE = 'dbg',
+diff -r dd32b03cd4c8 talk/session/phone/devicemanager.cc
+--- a/talk/session/phone/devicemanager.cc	Tue Apr 03 21:16:54 2012 +0200
++++ b/talk/session/phone/devicemanager.cc	Tue Apr 03 23:16:10 2012 +0200
+@@ -106,6 +106,7 @@
+   // multiple cameras, that's abstracted away at a higher level.
+   Device dev("camera", "1");    // name and ID
+   devices->push_back(dev);
++  return true;
+ #else
+   return false;
+ #endif
